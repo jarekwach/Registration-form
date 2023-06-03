@@ -22,5 +22,9 @@ export default {
 				bottom: 2px;
 			`,
 		},
+
+		disabled: css`
+			cursor: not-allowed;
+		`,
 	},
 };

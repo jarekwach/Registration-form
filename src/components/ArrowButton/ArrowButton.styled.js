@@ -14,9 +14,11 @@ const StyledArrowButton = styled.button`
 	box-shadow: var(--shadow);
 
 	&:hover {
-		background-color: var(--backgroundColor-hover);
+		background-color: ${({ disabled }) =>
+			disabled ? 'var(--color-button)' : 'var(--backgroundColor-hover)'};
 		::after {
-			border-color: var(--color-hover);
+			border-color: ${({ disabled }) =>
+				disabled ? 'var(--color-text)' : 'var(--color-hover)'};
 		}
 	}
 
@@ -33,6 +35,8 @@ const StyledArrowButton = styled.button`
 		position: relative;
 		${({ theme, variant }) => variant && theme.arrowButton.variant[variant]}
 	}
+
+	${({ theme, disabled }) => (disabled ? theme.arrowButton.disabled : null)}
 `;
 
 export { StyledArrowButton };
