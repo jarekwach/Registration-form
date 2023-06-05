@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledHeader } from './Header.styled';
 
-const Header = (props) => {
-	return <StyledHeader>{props.children}</StyledHeader>;
+const Header = ({ children }) => {
+	return <StyledHeader>{children}</StyledHeader>;
 };
 
 export default Header;

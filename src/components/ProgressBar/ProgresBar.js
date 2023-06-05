@@ -4,9 +4,7 @@ import {
 	StyledProgressBar,
 } from './ProgressBar.styled';
 
-const ProgressBar = (props) => {
-	const { value } = props;
-
+const ProgressBar = ({ value }) => {
 	return (
 		<StyledProgressBarContainer>
 			<StyledProgressBar style={{ width: `${value}%` }}></StyledProgressBar>

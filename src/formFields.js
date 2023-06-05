@@ -27,6 +27,8 @@ const formFields = [
 			pattern: '[0-9]{9}',
 		},
 	],
+	[],
+	[],
 ];
 
 export default formFields;

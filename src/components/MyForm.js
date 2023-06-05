@@ -64,7 +64,7 @@ const MyForm = (props) => {
 	};
 
 	return (
-		<section style={{ width: '1200px', margin: '100px' }}>
+		<section style={{ width: '1200px', margin: '100px auto' }}>
 			<Header>
 				<h1 onClick={() => console.log(formData)}>MyForm</h1>
 				<Switch
@@ -87,7 +87,13 @@ const MyForm = (props) => {
 							variant='right'
 						/>
 					) : (
-						<Button type='submit'>Submit</Button>
+						<Button
+							type='button'
+							onClick={(e) => {
+								e.preventDefault();
+							}}>
+							Send
+						</Button>
 					)}
 				</ButtonBox>
 				<ProgressBar value={progressValue}></ProgressBar>
