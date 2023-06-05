@@ -1,13 +1,24 @@
 import React from 'react';
 import FormField from '../components/FormField';
 
-const Page1 = ({ formFields, onChange }) => {
-	const fields = formFields.map((field) => (
-		<FormField
-			key={field.name}
-			data={field}
-			onChange={onChange}></FormField>
-	));
+const Page1 = ({ formFields, onChange, inputValue, formErrors }) => {
+	const fields = formFields.map((field) => {
+		const fieldError = formErrors.map((error) => {
+			if (error.name === field.name) {
+				return error.message;
+			}
+			return null;
+		});
+
+		return (
+			<FormField
+				key={field.name}
+				data={field}
+				onChange={onChange}
+				inputValue={inputValue[field.name]}
+				fieldError={fieldError}></FormField>
+		);
+	});
 	return (
 		<>
 			<h2>Page 1</h2>

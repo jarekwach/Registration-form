@@ -2,8 +2,9 @@ import React from 'react';
 import { StyledFormField } from './FormField.styled';
 import Label from '../Label';
 import InputText from '../InputText';
+import FormError from '../FormError';
 
-const FormField = ({ data, onChange }) => {
+const FormField = ({ data, onChange, inputValue, fieldError }) => {
 	const { name, label, required, pattern, type } = data;
 
 	return (
@@ -13,8 +14,10 @@ const FormField = ({ data, onChange }) => {
 					type={type}
 					label={label}
 					name={name}
-					onChange={onChange}></InputText>
+					onChange={onChange}
+					inputValue={inputValue}></InputText>
 			</Label>
+			<FormError>{fieldError.find((element) => element !== null)}</FormError>
 		</StyledFormField>
 	);
 };
