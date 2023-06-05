@@ -1,16 +1,17 @@
 import React from 'react';
-import Form from '../components/Form';
-import Button from '../components/Button';
-import ArrowButton from '../components/ArrowButton';
-import ButtonBox from '../components/ButtonBox';
+import FormField from '../components/FormField';
 
-const Page1 = (props) => {
-	// const { onClick } = props;
-
+const Page1 = ({ formFields, onChange }) => {
+	const fields = formFields.map((field) => (
+		<FormField
+			key={field.name}
+			data={field}
+			onChange={onChange}></FormField>
+	));
 	return (
 		<>
-			<h1>Strona 1</h1>
-
+			<h2>Page 1</h2>
+			{fields}
 		</>
 	);
 };

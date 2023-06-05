@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

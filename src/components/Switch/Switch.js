@@ -2,7 +2,8 @@ import React from 'react';
 import { SwitchContainer, SwitchLabel, Slider } from './Switch.styled';
 
 const Switch = (props) => {
-	const { onChange, isOn } = props;
+	const { onChange, isOn, children } = props;
+
 	return (
 		<SwitchContainer>
 			<SwitchLabel>
@@ -14,6 +15,7 @@ const Switch = (props) => {
 				/>
 				<Slider isOn={isOn} />
 			</SwitchLabel>
+			{children}
 		</SwitchContainer>
 	);
 };

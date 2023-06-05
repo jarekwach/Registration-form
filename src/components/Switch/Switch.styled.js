@@ -7,6 +7,7 @@ const SwitchContainer = styled.div`
 `;
 
 const SwitchLabel = styled.label`
+	margin-right: 1rem;
 	position: relative;
 	display: inline-block;
 	width: 45px;
