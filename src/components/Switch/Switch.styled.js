@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const SwitchContainer = styled.div`
+const StyledSwitchContainer = styled.div`
 	display: flex;
 	align-items: center;
 	margin: 20px;
 `;
 
-const SwitchLabel = styled.label`
+const StyledSwitchLabel = styled.label`
 	margin-right: 1rem;
 	position: relative;
 	display: inline-block;
@@ -14,7 +14,7 @@ const SwitchLabel = styled.label`
 	height: 24px;
 `;
 
-const Slider = styled.span`
+const StyledSlider = styled.span`
 	position: absolute;
 	cursor: pointer;
 	top: 0;
@@ -40,4 +40,4 @@ const Slider = styled.span`
 	}
 `;
 
-export { SwitchContainer, SwitchLabel, Slider };
+export { StyledSwitchContainer, StyledSwitchLabel, StyledSlider };

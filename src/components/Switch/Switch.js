@@ -1,20 +1,20 @@
 import React from 'react';
-import { SwitchContainer, SwitchLabel, Slider } from './Switch.styled';
+import { StyledSwitchContainer, StyledSwitchLabel, StyledSlider } from './Switch.styled';
 
 const Switch = ({ onChange, isOn, children }) => {
 	return (
-		<SwitchContainer>
-			<SwitchLabel>
+		<StyledSwitchContainer>
+			<StyledSwitchLabel>
 				<input
 					style={{ display: 'none' }}
 					type='checkbox'
 					checked={isOn}
 					onChange={onChange}
 				/>
-				<Slider isOn={isOn} />
-			</SwitchLabel>
+				<StyledSlider isOn={isOn} />
+			</StyledSwitchLabel>
 			{children}
-		</SwitchContainer>
+		</StyledSwitchContainer>
 	);
 };
 

@@ -1,6 +1,21 @@
 import { css } from 'styled-components';
 
 export default {
+	darkTheme: css`
+		background-color: #333;
+		color: #fff;
+
+		h1 {
+			text-shadow: none;
+		}
+
+		button,
+		div,
+		span {
+			box-shadow: none;
+		}
+	`,
+
 	button: {},
 
 	arrowButton: {

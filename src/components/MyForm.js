@@ -11,9 +11,10 @@ import { Page1, Page2, Page3, Page4 } from '../Pages';
 import Header from './Header';
 import formFields from '../formFields';
 import formValidation from '../formValidation';
+import Section from './Section';
 
 const MyForm = (props) => {
-	const [isOn, setIsOn] = useState(false);
+	const [darkTheme, setDarkTheme] = useState(false);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [progressValue, setProgressValue] = useState(0);
 	const [formErrors, setFormErrors] = useState([]);
@@ -42,7 +43,7 @@ const MyForm = (props) => {
 	];
 
 	const handleSwitch = () => {
-		setIsOn(!isOn);
+		setDarkTheme(!darkTheme);
 	};
 
 	const handleNextPageBtn = (e) => {
@@ -64,11 +65,11 @@ const MyForm = (props) => {
 	};
 
 	return (
-		<section style={{ width: '1200px', margin: '100px auto' }}>
+		<Section darkTheme={darkTheme}>
 			<Header>
 				<h1 onClick={() => console.log(formData)}>MyForm</h1>
 				<Switch
-					isOn={isOn}
+					isOn={darkTheme}
 					onChange={handleSwitch}>
 					Dark mode
 				</Switch>
@@ -98,7 +99,7 @@ const MyForm = (props) => {
 				</ButtonBox>
 				<ProgressBar value={progressValue}></ProgressBar>
 			</Form>
-		</section>
+		</Section>
 	);
 };
 
