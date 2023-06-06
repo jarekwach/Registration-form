@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const DefaultStyledSection = styled.section`
 	height: 100vh;
-	margin: 0 auto;
+	padding-top: 60px;
 `;
 
 const StyledSection = styled(DefaultStyledSection)`

@@ -64,6 +64,10 @@ const MyForm = (props) => {
 		setProgressValue(progressValue - 33.33);
 	};
 
+	const handleSelect = (option) => {
+		console.log('Selected option:', option);
+	};
+
 	return (
 		<Section darkTheme={darkTheme}>
 			<Header>

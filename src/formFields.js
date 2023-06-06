@@ -5,12 +5,14 @@ const formFields = [
 			label: 'First name',
 			required: true,
 			pattern: '[a-z]{3,}',
+			type: 'text',
 		},
 		{
 			name: 'lastName',
 			label: 'Last name',
 			required: true,
 			pattern: '[a-z]{3,}',
+			type: 'text',
 		},
 		{
 			name: 'email',

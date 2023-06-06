@@ -11,7 +11,8 @@ export default {
 
 		button,
 		div,
-		span {
+		span,
+		ul {
 			box-shadow: none;
 		}
 	`,
