@@ -6,25 +6,27 @@ import {
 	StyledDropdownMenu,
 	StyledDropdownMenuItem,
 } from './Dropdown.styled';
+import FormError from '../FormError';
 
-const Dropdown = ({ options, onSelect }) => {
+const Dropdown = ({ options, onSelect, fieldError, fieldName, inputValue }) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [selectedOption, setSelectedOption] = useState(null);
+	// const [selectedOption, setSelectedOption] = useState(null);
 
-	const handleToggleDropdown = () => {
+	const handleToggleDropdown = (e) => {
+		e.preventDefault();
 		setIsOpen(!isOpen);
 	};
 
 	const handleSelectOption = (option) => {
-		setSelectedOption(option);
-		onSelect(option);
+		// setSelectedOption(option);
+		onSelect(fieldName, option);
 		setIsOpen(false);
 	};
 
 	return (
 		<StyledDropdownContainer>
 			<StyledDropdownButton onClick={handleToggleDropdown}>
-				{selectedOption || 'Sex'}
+				{inputValue || fieldName}
 				<span>{isOpen ? '▲' : '▼'}</span>
 			</StyledDropdownButton>
 			<StyledDropdownMenu open={isOpen}>
@@ -36,6 +38,7 @@ const Dropdown = ({ options, onSelect }) => {
 					</StyledDropdownMenuItem>
 				))}
 			</StyledDropdownMenu>
+			<FormError>{fieldError}</FormError>
 		</StyledDropdownContainer>
 	);
 };

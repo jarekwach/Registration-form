@@ -23,17 +23,22 @@ const MyForm = (props) => {
 		setFormData({ ...formData, [name]: value });
 	};
 
+	const handleSelect = (name, option) => {
+		setFormData({ ...formData, [name]: option });
+	};
+
 	const [formData, setFormData] = useState({
+		gender: '',
 		firstName: '',
 		lastName: '',
 		email: '',
-		phone: '',
 	});
 
 	const formPages = [
 		<Page1
 			formFields={formFields[currentPage]}
 			onChange={handleInputChange}
+			onSelect={handleSelect}
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
@@ -62,10 +67,6 @@ const MyForm = (props) => {
 		e.preventDefault();
 		setCurrentPage(currentPage - 1);
 		setProgressValue(progressValue - 33.33);
-	};
-
-	const handleSelect = (option) => {
-		console.log('Selected option:', option);
 	};
 
 	return (

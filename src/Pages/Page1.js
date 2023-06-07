@@ -1,7 +1,8 @@
 import React from 'react';
 import FormField from '../components/FormField';
+import Dropdown from '../components/Dropdown/Dropdown';
 
-const Page1 = ({ formFields, onChange, inputValue, formErrors }) => {
+const Page1 = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
 	const fields = formFields.map((field) => {
 		const fieldError = formErrors.map((error) => {
 			if (error.name === field.name) {
@@ -9,6 +10,18 @@ const Page1 = ({ formFields, onChange, inputValue, formErrors }) => {
 			}
 			return null;
 		});
+
+		if (field.type === 'select') {
+			return (
+				<Dropdown
+					key={field.name}
+					options={field.options}
+					onSelect={onSelect}
+					fieldName={field.name}
+					inputValue={inputValue[field.name]}
+					fieldError={fieldError}></Dropdown>
+			);
+		}
 
 		return (
 			<FormField
