@@ -15,9 +15,10 @@ const Page1 = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
 			return (
 				<Dropdown
 					key={field.name}
+					name={field.name}
+					label={field.label}
 					options={field.options}
 					onSelect={onSelect}
-					fieldName={field.name}
 					inputValue={inputValue[field.name]}
 					fieldError={fieldError}></Dropdown>
 			);

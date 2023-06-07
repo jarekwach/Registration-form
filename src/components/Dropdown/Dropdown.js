@@ -8,7 +8,7 @@ import {
 } from './Dropdown.styled';
 import FormError from '../FormError';
 
-const Dropdown = ({ options, onSelect, fieldError, fieldName, inputValue }) => {
+const Dropdown = ({ options, onSelect, fieldError, name, label, inputValue }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	// const [selectedOption, setSelectedOption] = useState(null);
 
@@ -19,14 +19,16 @@ const Dropdown = ({ options, onSelect, fieldError, fieldName, inputValue }) => {
 
 	const handleSelectOption = (option) => {
 		// setSelectedOption(option);
-		onSelect(fieldName, option);
+		onSelect(name, option);
 		setIsOpen(false);
 	};
 
 	return (
 		<StyledDropdownContainer>
-			<StyledDropdownButton onClick={handleToggleDropdown}>
-				{inputValue || fieldName}
+			<StyledDropdownButton
+				type='button'
+				onClick={handleToggleDropdown}>
+				{inputValue || label}
 				<span>{isOpen ? '▲' : '▼'}</span>
 			</StyledDropdownButton>
 			<StyledDropdownMenu open={isOpen}>

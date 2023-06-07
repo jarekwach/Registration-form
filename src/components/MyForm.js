@@ -90,6 +90,7 @@ const MyForm = (props) => {
 				{formPages[currentPage]}
 				<ButtonBox>
 					<ArrowButton
+						type='button'
 						variant='left'
 						onClick={handlePreviousPageBtn}
 						disabled={currentPage === 0}

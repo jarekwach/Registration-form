@@ -9,7 +9,7 @@ const FormField = ({ data, onChange, inputValue, fieldError }) => {
 
 	return (
 		<StyledFormField>
-			<Label for={label}>
+			<Label label={name}>
 				<InputText
 					type={type}
 					label={label}
