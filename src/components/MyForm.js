@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 
 import Button from './Button';
 import ArrowButton from './ArrowButton';
-// import InputRadio from './InputRadio';
 import Form from './Form';
 import ProgressBar from './ProgressBar';
 import Switch from './Switch';
 import ButtonBox from './ButtonBox';
-import { Page1, Page2, Page3, Page4 } from '../Pages';
 import Header from './Header';
+import Section from './Section';
 import formFields from '../formFields';
 import formValidation from '../formValidation';
-import Section from './Section';
+import { Page1, Page2, Page3, Page4 } from '../Pages';
 
-const MyForm = (props) => {
+const MyForm = () => {
 	const [darkTheme, setDarkTheme] = useState(false);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [progressValue, setProgressValue] = useState(0);
@@ -27,11 +26,8 @@ const MyForm = (props) => {
 		setFormData({ ...formData, [name]: option });
 	};
 
-	const [isChecked, setIsChecked] = useState(false);
 	const handleCheckboxChange = (name, checked) => {
-		console.log(name);
-		console.log(checked);
-		setIsChecked(checked);
+		setFormData({ ...formData, [name]: checked });
 	};
 
 	const [formData, setFormData] = useState({
@@ -41,6 +37,10 @@ const MyForm = (props) => {
 		email: '',
 		password: '',
 		confirmPassword: '',
+		phone: '',
+		offers: false,
+		newsletter: false,
+		regulations: true,
 	});
 
 	const formPages = [
@@ -57,7 +57,13 @@ const MyForm = (props) => {
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
-		<Page3 />,
+		<Page3
+			formFields={formFields[currentPage]}
+			onChange={handleInputChange}
+			onChecked={handleCheckboxChange}
+			inputValue={formData}
+			formErrors={formErrors}
+		/>,
 		<Page4 />,
 	];
 

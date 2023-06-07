@@ -21,14 +21,6 @@ const formFields = [
 			pattern: '[a-z]{3,}',
 			type: 'text',
 		},
-
-		// {
-		// 	name: 'phone',
-		// 	label: 'Phone',
-		// 	required: true,
-		// 	type: 'number',
-		// 	pattern: '[0-9]{9}',
-		// },
 	],
 	[
 		{
@@ -50,6 +42,34 @@ const formFields = [
 			label: 'Confirm password',
 			required: true,
 			type: 'password',
+		},
+	],
+	[
+		{
+			name: 'phone',
+			label: 'Phone number',
+			required: false,
+			type: 'number',
+			pattern: '[0-9]{9}',
+		},
+		{
+			label: 'Receive offers on phone number',
+			name: 'offers',
+			required: false,
+			type: 'checkbox',
+		},
+
+		{
+			label: 'Subscribe to newsletter',
+			name: 'newsletter',
+			required: false,
+			type: 'checkbox',
+		},
+		{
+			label: 'Accept regulations',
+			name: 'regulations',
+			required: true,
+			type: 'checkbox',
 		},
 	],
 	[],

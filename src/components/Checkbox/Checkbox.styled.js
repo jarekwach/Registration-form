@@ -3,8 +3,10 @@ import styled from 'styled-components';
 const StyledCheckboxContainer = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	position: relative;
+	margin: 0 auto;
+	width: 26rem;
 `;
 
 const StyledHiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`

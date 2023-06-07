@@ -1,34 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 	StyledCheckboxContainer,
 	StyledHiddenCheckbox,
 	StyledCheckbox,
 	StyledCheckboxLabel,
 } from './Checkbox.styled';
+import FormError from '../FormError';
 
-const Checkbox = ({ checked, onChange, label, name }) => {
-	const [isChecked, setIsChecked] = useState(checked);
-
+const Checkbox = ({ onChecked, label, name, inputValue, fieldError }) => {
 	const handleCheckboxChange = () => {
-		const newChecked = !isChecked;
-		setIsChecked(newChecked);
-
-		onChange(name, newChecked);
+		onChecked(name, !inputValue);
 	};
 
 	return (
-		<StyledCheckboxContainer>
-			<StyledHiddenCheckbox />
-			<StyledCheckbox
-				checked={isChecked}
-				onClick={handleCheckboxChange}
-			/>
-			{label && (
-				<StyledCheckboxLabel onClick={handleCheckboxChange}>
-					{label}
-				</StyledCheckboxLabel>
-			)}
-		</StyledCheckboxContainer>
+		<>
+			<StyledCheckboxContainer>
+				<StyledHiddenCheckbox />
+				<StyledCheckbox
+					checked={inputValue}
+					onClick={handleCheckboxChange}
+				/>
+				{label && (
+					<StyledCheckboxLabel onClick={handleCheckboxChange}>
+						{label}
+					</StyledCheckboxLabel>
+				)}
+			</StyledCheckboxContainer>
+			<FormError>{fieldError}</FormError>
+		</>
 	);
 };
 

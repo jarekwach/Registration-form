@@ -7,7 +7,7 @@ function formValidation(data, fields) {
 		const { name, label, required = true, pattern = null, type } = field;
 
 		if (required) {
-			if (value.length < 1) {
+			if (value.length < 1 || value === false) {
 				errors.push({
 					name,
 					message: `'${label}' is required.`,
@@ -38,7 +38,7 @@ function formValidation(data, fields) {
 			}
 		}
 
-		if (pattern) {
+		if (value.length > 0 && pattern) {
 			const reg = new RegExp(pattern);
 			if (!reg.test(value)) {
 				errors.push({
