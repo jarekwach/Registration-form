@@ -1,5 +1,6 @@
 function formValidation(data, fields) {
 	const errors = [];
+	let passwordValue = '';
 
 	fields.forEach((field) => {
 		const value = data[field.name];
@@ -10,6 +11,29 @@ function formValidation(data, fields) {
 				errors.push({
 					name,
 					message: `'${label}' is required.`,
+				});
+			}
+		}
+
+		if (pattern && name === 'password') {
+			const reg = new RegExp(pattern);
+			if (!reg.test(value)) {
+				errors.push({
+					name,
+					message: `The password should be at least 8 characters, including a number and a special character.`,
+				});
+			}
+		}
+
+		if (name === 'password') {
+			passwordValue = value;
+		}
+
+		if (name === 'confirmPassword') {
+			if (value !== passwordValue) {
+				errors.push({
+					name,
+					message: `'${label}' does not match the password.`,
 				});
 			}
 		}

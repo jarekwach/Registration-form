@@ -32,6 +32,8 @@ const MyForm = (props) => {
 		firstName: '',
 		lastName: '',
 		email: '',
+		password: '',
+		confirmPassword: '',
 	});
 
 	const formPages = [
@@ -42,7 +44,12 @@ const MyForm = (props) => {
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
-		<Page2 />,
+		<Page2
+			formFields={formFields[currentPage]}
+			onChange={handleInputChange}
+			inputValue={formData}
+			formErrors={formErrors}
+		/>,
 		<Page3 />,
 		<Page4 />,
 	];
