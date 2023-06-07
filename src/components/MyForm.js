@@ -27,6 +27,13 @@ const MyForm = (props) => {
 		setFormData({ ...formData, [name]: option });
 	};
 
+	const [isChecked, setIsChecked] = useState(false);
+	const handleCheckboxChange = (name, checked) => {
+		console.log(name);
+		console.log(checked);
+		setIsChecked(checked);
+	};
+
 	const [formData, setFormData] = useState({
 		gender: '',
 		firstName: '',
