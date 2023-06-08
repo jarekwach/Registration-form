@@ -64,7 +64,7 @@ const MyForm = () => {
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
-		<Page4 />,
+		<Page4 formData={formData} />,
 	];
 
 	const handleSwitch = () => {
