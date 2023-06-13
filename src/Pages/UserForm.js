@@ -1,7 +1,8 @@
 import React from 'react';
 import FormField from '../components/FormField';
+import Dropdown from '../components/Dropdown/Dropdown';
 
-const Page2 = ({ formFields, onChange, inputValue, formErrors }) => {
+const UserForm = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
 	const fields = formFields.map((field) => {
 		const fieldError = formErrors.map((error) => {
 			if (error.name === field.name) {
@@ -9,6 +10,19 @@ const Page2 = ({ formFields, onChange, inputValue, formErrors }) => {
 			}
 			return null;
 		});
+
+		if (field.type === 'select') {
+			return (
+				<Dropdown
+					key={field.name}
+					name={field.name}
+					label={field.label}
+					options={field.options}
+					onSelect={onSelect}
+					inputValue={inputValue[field.name]}
+					fieldError={fieldError}></Dropdown>
+			);
+		}
 
 		return (
 			<FormField
@@ -21,10 +35,10 @@ const Page2 = ({ formFields, onChange, inputValue, formErrors }) => {
 	});
 	return (
 		<>
-			<h2>Page 2</h2>
+			<h2>User</h2>
 			{fields}
 		</>
 	);
 };
 
-export { Page2 };
+export { UserForm };

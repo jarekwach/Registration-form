@@ -10,13 +10,16 @@ import Header from './Header';
 import Section from './Section';
 import formFields from '../formFields';
 import formValidation from '../formValidation';
-import { Page1, Page2, Page3, Page4 } from '../Pages';
+import { UserForm, LoginForm, Consents, Summary } from '../Pages';
+import { initialFormData } from '../initialData';
+import Alert from './Alert';
 
 const MyForm = () => {
 	const [darkTheme, setDarkTheme] = useState(false);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [progressValue, setProgressValue] = useState(0);
 	const [formErrors, setFormErrors] = useState([]);
+	const [showAlert, setShowAlert] = useState(false);
 
 	const handleInputChange = (name, value) => {
 		setFormData({ ...formData, [name]: value });
@@ -30,41 +33,30 @@ const MyForm = () => {
 		setFormData({ ...formData, [name]: checked });
 	};
 
-	const [formData, setFormData] = useState({
-		gender: '',
-		firstName: '',
-		lastName: '',
-		email: '',
-		password: '',
-		confirmPassword: '',
-		phone: '',
-		offers: false,
-		newsletter: false,
-		regulations: true,
-	});
+	const [formData, setFormData] = useState(initialFormData);
 
 	const formPages = [
-		<Page1
+		<UserForm
 			formFields={formFields[currentPage]}
 			onChange={handleInputChange}
 			onSelect={handleSelect}
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
-		<Page2
+		<LoginForm
 			formFields={formFields[currentPage]}
 			onChange={handleInputChange}
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
-		<Page3
+		<Consents
 			formFields={formFields[currentPage]}
 			onChange={handleInputChange}
 			onChecked={handleCheckboxChange}
 			inputValue={formData}
 			formErrors={formErrors}
 		/>,
-		<Page4 formData={formData} />,
+		<Summary formData={formData} />,
 	];
 
 	const handleSwitch = () => {
@@ -89,10 +81,23 @@ const MyForm = () => {
 		setProgressValue(progressValue - 33.33);
 	};
 
+	const handleSendBtn = (e) => {
+		e.preventDefault();
+		setShowAlert(true);
+	};
+
+	const handleCloseAlert = (e) => {
+		e.preventDefault();
+		setShowAlert(false);
+		setFormData(initialFormData);
+		setCurrentPage(0);
+		setProgressValue(0);
+	};
+
 	return (
 		<Section darkTheme={darkTheme}>
 			<Header>
-				<h1 onClick={() => console.log(formData)}>MyForm</h1>
+				<h1>Registration form</h1>
 				<Switch
 					isOn={darkTheme}
 					onChange={handleSwitch}>
@@ -116,13 +121,18 @@ const MyForm = () => {
 					) : (
 						<Button
 							type='button'
-							onClick={(e) => {
-								e.preventDefault();
-							}}>
+							onClick={handleSendBtn}>
 							Send
 						</Button>
 					)}
 				</ButtonBox>
+				{showAlert && (
+					<Alert
+						darkTheme={darkTheme}
+						message={`Form completed. Check your email: ${formData.email}`}
+						onClick={handleCloseAlert}
+					/>
+				)}
 				<ProgressBar value={progressValue}></ProgressBar>
 			</Form>
 		</Section>

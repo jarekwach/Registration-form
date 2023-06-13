@@ -1,7 +1,7 @@
 import React from 'react';
 import SummaryList from '../components/SummaryList';
 
-const Page4 = ({ formData }) => {
+const Summary = ({ formData }) => {
 	const { firstName, lastName, email, newsletter, phone } = formData;
 
 	const summaryData = [
@@ -20,4 +20,4 @@ const Page4 = ({ formData }) => {
 	);
 };
 
-export { Page4 };
+export { Summary };

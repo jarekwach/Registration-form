@@ -1,6 +1,6 @@
-import { Page1 } from './Page1';
-import { Page2 } from './Page2';
-import { Page3 } from './Page3';
-import { Page4 } from './Page4';
+import { UserForm } from './UserForm';
+import { LoginForm } from './LoginForm';
+import { Consents } from './Consents';
+import { Summary } from './Summary';
 
-export { Page1, Page2, Page3, Page4 };
+export { UserForm, LoginForm, Consents, Summary };

@@ -1,8 +1,8 @@
 import React from 'react';
 import FormField from '../components/FormField';
-import Dropdown from '../components/Dropdown/Dropdown';
+import Checkbox from '../components/Checkbox';
 
-const Page1 = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
+const Consents = ({ formFields, onChange, inputValue, formErrors, onChecked }) => {
 	const fields = formFields.map((field) => {
 		const fieldError = formErrors.map((error) => {
 			if (error.name === field.name) {
@@ -11,16 +11,15 @@ const Page1 = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
 			return null;
 		});
 
-		if (field.type === 'select') {
+		if (field.type === 'checkbox') {
 			return (
-				<Dropdown
+				<Checkbox
 					key={field.name}
-					name={field.name}
 					label={field.label}
-					options={field.options}
-					onSelect={onSelect}
+					name={field.name}
+					onChecked={onChecked}
 					inputValue={inputValue[field.name]}
-					fieldError={fieldError}></Dropdown>
+					fieldError={fieldError}></Checkbox>
 			);
 		}
 
@@ -35,10 +34,10 @@ const Page1 = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
 	});
 	return (
 		<>
-			<h2>Page 1</h2>
+			<h2>Consents</h2>
 			{fields}
 		</>
 	);
 };
 
-export { Page1 };
+export { Consents };
