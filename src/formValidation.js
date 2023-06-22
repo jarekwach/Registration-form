@@ -4,36 +4,20 @@ function formValidation(data, fields) {
 
 	fields.forEach((field) => {
 		const value = data[field.name];
-		const { name, label, required = true, pattern = null, type } = field;
+		const {
+			name,
+			label,
+			required = true,
+			pattern = null,
+			type,
+			errorMsg,
+		} = field;
 
 		if (required) {
 			if (value.length < 1 || value === false) {
 				errors.push({
 					name,
-					message: `'${label}' is required.`,
-				});
-			}
-		}
-
-		if (pattern && name === 'password') {
-			const reg = new RegExp(pattern);
-			if (!reg.test(value)) {
-				errors.push({
-					name,
-					message: `The password should be at least 8 characters, including a number and a special character.`,
-				});
-			}
-		}
-
-		if (name === 'password') {
-			passwordValue = value;
-		}
-
-		if (name === 'confirmPassword') {
-			if (value !== passwordValue) {
-				errors.push({
-					name,
-					message: `'${label}' does not match the password.`,
+					message: `${label} is required.`,
 				});
 			}
 		}
@@ -43,8 +27,23 @@ function formValidation(data, fields) {
 			if (!reg.test(value)) {
 				errors.push({
 					name,
-					message: `Invalid format in '${label}' `,
+					message: errorMsg,
 				});
+			}
+		}
+
+		if (type === 'password') {
+			if (name === 'password') {
+				passwordValue = value;
+			}
+
+			if (name == 'confirmPassword') {
+				if (value !== passwordValue) {
+					errors.push({
+						name,
+						message: errorMsg,
+					});
+				}
 			}
 		}
 
