@@ -1,15 +1,17 @@
 import React from 'react';
 import FormField from '../components/FormField';
 import Checkbox from '../components/Checkbox';
+import { getFieldError } from '../helpers';
 
-const Consents = ({ formFields, onChange, inputValue, formErrors, onChecked }) => {
+const Consents = ({
+	formFields,
+	onChange,
+	inputValue,
+	formErrors,
+	onChecked,
+}) => {
 	const fields = formFields.map((field) => {
-		const fieldError = formErrors.map((error) => {
-			if (error.name === field.name) {
-				return error.message;
-			}
-			return null;
-		});
+		const fieldError = getFieldError(formErrors, field);
 
 		if (field.type === 'checkbox') {
 			return (
@@ -32,6 +34,7 @@ const Consents = ({ formFields, onChange, inputValue, formErrors, onChecked }) =
 				fieldError={fieldError}></FormField>
 		);
 	});
+
 	return (
 		<>
 			<h2>Consents</h2>

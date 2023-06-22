@@ -1,15 +1,17 @@
 import React from 'react';
 import FormField from '../components/FormField';
 import Dropdown from '../components/Dropdown/Dropdown';
+import { getFieldError } from '../helpers';
 
-const UserForm = ({ formFields, onChange, onSelect, inputValue, formErrors }) => {
+const UserForm = ({
+	formFields,
+	onChange,
+	onSelect,
+	inputValue,
+	formErrors,
+}) => {
 	const fields = formFields.map((field) => {
-		const fieldError = formErrors.map((error) => {
-			if (error.name === field.name) {
-				return error.message;
-			}
-			return null;
-		});
+		const fieldError = getFieldError(formErrors, field);
 
 		if (field.type === 'select') {
 			return (

@@ -1,14 +1,10 @@
 import React from 'react';
 import FormField from '../components/FormField';
+import { getFieldError } from '../helpers';
 
 const LoginForm = ({ formFields, onChange, inputValue, formErrors }) => {
 	const fields = formFields.map((field) => {
-		const fieldError = formErrors.map((error) => {
-			if (error.name === field.name) {
-				return error.message;
-			}
-			return null;
-		});
+		const fieldError = getFieldError(formErrors, field);
 
 		return (
 			<FormField
@@ -19,6 +15,7 @@ const LoginForm = ({ formFields, onChange, inputValue, formErrors }) => {
 				fieldError={fieldError}></FormField>
 		);
 	});
+
 	return (
 		<>
 			<h2>Login data</h2>
