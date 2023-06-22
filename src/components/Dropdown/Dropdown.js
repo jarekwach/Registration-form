@@ -10,7 +10,6 @@ import FormError from '../FormError';
 
 const Dropdown = ({ options, onSelect, fieldError, name, label, inputValue }) => {
 	const [isOpen, setIsOpen] = useState(false);
-	// const [selectedOption, setSelectedOption] = useState(null);
 
 	const handleToggleDropdown = (e) => {
 		e.preventDefault();
@@ -18,7 +17,6 @@ const Dropdown = ({ options, onSelect, fieldError, name, label, inputValue }) =>
 	};
 
 	const handleSelectOption = (option) => {
-		// setSelectedOption(option);
 		onSelect(name, option);
 		setIsOpen(false);
 	};

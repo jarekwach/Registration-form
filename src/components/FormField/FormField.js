@@ -5,7 +5,7 @@ import InputText from '../InputText';
 import FormError from '../FormError';
 
 const FormField = ({ data, onChange, inputValue, fieldError }) => {
-	const { name, label, required, pattern, type } = data;
+	const { name, label, type } = data;
 
 	return (
 		<StyledFormField>

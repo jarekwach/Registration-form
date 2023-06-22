@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledProgressBarContainer = styled.div`
-	/* width: 100%; */
 	height: 12px;
     margin: 10px;
 	background-color: #f0f0f0;
