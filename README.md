@@ -1,10 +1,10 @@
-![Registration form](./assets/screen-desktop.png)
+![Registration form](./assets/registration-form.gif)
 
 # Registration form
 
 See the live version of [Registration form](https://jarekwach.github.io/Registration-form/build/).
 
-Registration form is ...
+Registration form is a multi-step form consisting of React components created according to the [neumorphism](https://www.justinmind.com/ui-design/neumorphism) trend and using Styled Components.
 
 **Main features**:
 
@@ -24,6 +24,16 @@ Registration form is ...
 ![Babel](https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+
+&nbsp;
+
+## :camera: Screenshots
+
+![Registration form](./assets/screen-desktop-1.png)
+
+### Dark theme
+
+![Registration form](./assets/screen-desktop-2.png)
 
 &nbsp;
 
