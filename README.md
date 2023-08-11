@@ -8,7 +8,11 @@ Registration form is a multi-step form consisting of React components created ac
 
 **Main features**:
 
--
+- validation of all form fields
+- progress bar showing the level of completion of the form
+- dark and light theme - choice with custom switch component
+- changing the pages of the form without losing the entered data
+- neumorphism design
 
 &nbsp;
 
@@ -28,6 +32,8 @@ Registration form is a multi-step form consisting of React components created ac
 &nbsp;
 
 ## :camera: Screenshots
+
+### Light theme
 
 ![Registration form](./assets/screen-desktop-1.png)
 
