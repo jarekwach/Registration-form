@@ -12,7 +12,7 @@ const InputText = (props) => {
 	return (
 		<StyledInputText
 			name={name}
-			type={type}
+			type={type === 'confirmPassword' ? 'password' : type}
 			placeholder={label}
 			onChange={handleInputChange}
 			value={inputValue}></StyledInputText>

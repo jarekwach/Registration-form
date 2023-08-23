@@ -1,6 +1,5 @@
 function formValidation(data, fields) {
 	const errors = [];
-	let passwordValue = '';
 
 	fields.forEach((field) => {
 		const value = data[field.name];
@@ -32,18 +31,12 @@ function formValidation(data, fields) {
 			}
 		}
 
-		if (type === 'password') {
-			if (name === 'password') {
-				passwordValue = value;
-			}
-
-			if (name == 'confirmPassword') {
-				if (value !== passwordValue) {
-					errors.push({
-						name,
-						message: errorMsg,
-					});
-				}
+		if (type === 'confirmPassword') {
+			if (data[field.compareWith] !== value) {
+				errors.push({
+					name,
+					message: errorMsg,
+				});
 			}
 		}
 
